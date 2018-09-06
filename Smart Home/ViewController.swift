@@ -16,7 +16,9 @@ class ViewController: UIViewController {
         
         Auth.auth().addStateDidChangeListener { (auth, user) in
             if (user != nil) {
-                
+                self.performSegue(withIdentifier: "controllerToMain", sender: self)
+            } else {
+                self.performSegue(withIdentifier: "controllerToLogin", sender: self)
             }
         }
         

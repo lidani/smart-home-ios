@@ -19,6 +19,7 @@
 		EC87F015214174B900E42876 /* Smart_HomeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC87F014214174B900E42876 /* Smart_HomeUITests.swift */; };
 		EC87F0232141750200E42876 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EC87F0222141750200E42876 /* GoogleService-Info.plist */; };
 		EC87F02521417BEF00E42876 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC87F02421417BEF00E42876 /* LoginViewController.swift */; };
+		ECF4DF4321418B1000A6BEFD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF4DF4221418B1000A6BEFD /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		EC87F016214174B900E42876 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC87F0222141750200E42876 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		EC87F02421417BEF00E42876 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		ECF4DF4221418B1000A6BEFD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F472125B3EE6CB339EE5564C /* Pods-Smart HomeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart HomeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smart HomeTests/Pods-Smart HomeTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -144,6 +146,7 @@
 				EC87F0222141750200E42876 /* GoogleService-Info.plist */,
 				EC87EFF4214174B700E42876 /* AppDelegate.swift */,
 				EC87EFF6214174B700E42876 /* ViewController.swift */,
+				ECF4DF4221418B1000A6BEFD /* HomeViewController.swift */,
 				EC87F02421417BEF00E42876 /* LoginViewController.swift */,
 				EC87EFF8214174B700E42876 /* Main.storyboard */,
 				EC87EFFB214174B800E42876 /* Assets.xcassets */,
@@ -389,6 +392,7 @@
 				EC87F02521417BEF00E42876 /* LoginViewController.swift in Sources */,
 				EC87EFF7214174B700E42876 /* ViewController.swift in Sources */,
 				EC87EFF5214174B700E42876 /* AppDelegate.swift in Sources */,
+				ECF4DF4321418B1000A6BEFD /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
