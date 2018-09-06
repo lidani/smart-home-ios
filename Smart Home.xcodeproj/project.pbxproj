@@ -1,0 +1,583 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EC87EFF5214174B700E42876 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC87EFF4214174B700E42876 /* AppDelegate.swift */; };
+		EC87EFF7214174B700E42876 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC87EFF6214174B700E42876 /* ViewController.swift */; };
+		EC87EFFA214174B700E42876 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC87EFF8214174B700E42876 /* Main.storyboard */; };
+		EC87EFFC214174B900E42876 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC87EFFB214174B800E42876 /* Assets.xcassets */; };
+		EC87EFFF214174B900E42876 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC87EFFD214174B900E42876 /* LaunchScreen.storyboard */; };
+		EC87F00A214174B900E42876 /* Smart_HomeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC87F009214174B900E42876 /* Smart_HomeTests.swift */; };
+		EC87F015214174B900E42876 /* Smart_HomeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC87F014214174B900E42876 /* Smart_HomeUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EC87F006214174B900E42876 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC87EFE9214174B700E42876 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EC87EFF0214174B700E42876;
+			remoteInfo = "Smart Home";
+		};
+		EC87F011214174B900E42876 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EC87EFE9214174B700E42876 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EC87EFF0214174B700E42876;
+			remoteInfo = "Smart Home";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EC87EFF1214174B700E42876 /* Smart Home.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Home.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC87EFF4214174B700E42876 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EC87EFF6214174B700E42876 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EC87EFF9214174B700E42876 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EC87EFFB214174B800E42876 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EC87EFFE214174B900E42876 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EC87F000214174B900E42876 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC87F005214174B900E42876 /* Smart HomeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Smart HomeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC87F009214174B900E42876 /* Smart_HomeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Smart_HomeTests.swift; sourceTree = "<group>"; };
+		EC87F00B214174B900E42876 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EC87F010214174B900E42876 /* Smart HomeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Smart HomeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC87F014214174B900E42876 /* Smart_HomeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Smart_HomeUITests.swift; sourceTree = "<group>"; };
+		EC87F016214174B900E42876 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EC87EFEE214174B700E42876 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC87F002214174B900E42876 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC87F00D214174B900E42876 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EC87EFE8214174B700E42876 = {
+			isa = PBXGroup;
+			children = (
+				EC87EFF3214174B700E42876 /* Smart Home */,
+				EC87F008214174B900E42876 /* Smart HomeTests */,
+				EC87F013214174B900E42876 /* Smart HomeUITests */,
+				EC87EFF2214174B700E42876 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EC87EFF2214174B700E42876 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EC87EFF1214174B700E42876 /* Smart Home.app */,
+				EC87F005214174B900E42876 /* Smart HomeTests.xctest */,
+				EC87F010214174B900E42876 /* Smart HomeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EC87EFF3214174B700E42876 /* Smart Home */ = {
+			isa = PBXGroup;
+			children = (
+				EC87EFF4214174B700E42876 /* AppDelegate.swift */,
+				EC87EFF6214174B700E42876 /* ViewController.swift */,
+				EC87EFF8214174B700E42876 /* Main.storyboard */,
+				EC87EFFB214174B800E42876 /* Assets.xcassets */,
+				EC87EFFD214174B900E42876 /* LaunchScreen.storyboard */,
+				EC87F000214174B900E42876 /* Info.plist */,
+			);
+			path = "Smart Home";
+			sourceTree = "<group>";
+		};
+		EC87F008214174B900E42876 /* Smart HomeTests */ = {
+			isa = PBXGroup;
+			children = (
+				EC87F009214174B900E42876 /* Smart_HomeTests.swift */,
+				EC87F00B214174B900E42876 /* Info.plist */,
+			);
+			path = "Smart HomeTests";
+			sourceTree = "<group>";
+		};
+		EC87F013214174B900E42876 /* Smart HomeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EC87F014214174B900E42876 /* Smart_HomeUITests.swift */,
+				EC87F016214174B900E42876 /* Info.plist */,
+			);
+			path = "Smart HomeUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EC87EFF0214174B700E42876 /* Smart Home */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC87F019214174B900E42876 /* Build configuration list for PBXNativeTarget "Smart Home" */;
+			buildPhases = (
+				EC87EFED214174B700E42876 /* Sources */,
+				EC87EFEE214174B700E42876 /* Frameworks */,
+				EC87EFEF214174B700E42876 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Smart Home";
+			productName = "Smart Home";
+			productReference = EC87EFF1214174B700E42876 /* Smart Home.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EC87F004214174B900E42876 /* Smart HomeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC87F01C214174B900E42876 /* Build configuration list for PBXNativeTarget "Smart HomeTests" */;
+			buildPhases = (
+				EC87F001214174B900E42876 /* Sources */,
+				EC87F002214174B900E42876 /* Frameworks */,
+				EC87F003214174B900E42876 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EC87F007214174B900E42876 /* PBXTargetDependency */,
+			);
+			name = "Smart HomeTests";
+			productName = "Smart HomeTests";
+			productReference = EC87F005214174B900E42876 /* Smart HomeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EC87F00F214174B900E42876 /* Smart HomeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC87F01F214174B900E42876 /* Build configuration list for PBXNativeTarget "Smart HomeUITests" */;
+			buildPhases = (
+				EC87F00C214174B900E42876 /* Sources */,
+				EC87F00D214174B900E42876 /* Frameworks */,
+				EC87F00E214174B900E42876 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EC87F012214174B900E42876 /* PBXTargetDependency */,
+			);
+			name = "Smart HomeUITests";
+			productName = "Smart HomeUITests";
+			productReference = EC87F010214174B900E42876 /* Smart HomeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EC87EFE9214174B700E42876 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "Gustavo Lidani";
+				TargetAttributes = {
+					EC87EFF0214174B700E42876 = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					EC87F004214174B900E42876 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = EC87EFF0214174B700E42876;
+					};
+					EC87F00F214174B900E42876 = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = EC87EFF0214174B700E42876;
+					};
+				};
+			};
+			buildConfigurationList = EC87EFEC214174B700E42876 /* Build configuration list for PBXProject "Smart Home" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EC87EFE8214174B700E42876;
+			productRefGroup = EC87EFF2214174B700E42876 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EC87EFF0214174B700E42876 /* Smart Home */,
+				EC87F004214174B900E42876 /* Smart HomeTests */,
+				EC87F00F214174B900E42876 /* Smart HomeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EC87EFEF214174B700E42876 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC87EFFF214174B900E42876 /* LaunchScreen.storyboard in Resources */,
+				EC87EFFC214174B900E42876 /* Assets.xcassets in Resources */,
+				EC87EFFA214174B700E42876 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC87F003214174B900E42876 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC87F00E214174B900E42876 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EC87EFED214174B700E42876 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC87EFF7214174B700E42876 /* ViewController.swift in Sources */,
+				EC87EFF5214174B700E42876 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC87F001214174B900E42876 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC87F00A214174B900E42876 /* Smart_HomeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC87F00C214174B900E42876 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC87F015214174B900E42876 /* Smart_HomeUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EC87F007214174B900E42876 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EC87EFF0214174B700E42876 /* Smart Home */;
+			targetProxy = EC87F006214174B900E42876 /* PBXContainerItemProxy */;
+		};
+		EC87F012214174B900E42876 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EC87EFF0214174B700E42876 /* Smart Home */;
+			targetProxy = EC87F011214174B900E42876 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EC87EFF8214174B700E42876 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EC87EFF9214174B700E42876 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EC87EFFD214174B900E42876 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EC87EFFE214174B900E42876 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EC87F017214174B900E42876 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EC87F018214174B900E42876 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EC87F01A214174B900E42876 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Smart Home/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "lidani.Smart-Home";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EC87F01B214174B900E42876 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Smart Home/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "lidani.Smart-Home";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		EC87F01D214174B900E42876 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Smart HomeTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "lidani.Smart-HomeTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Smart Home.app/Smart Home";
+			};
+			name = Debug;
+		};
+		EC87F01E214174B900E42876 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Smart HomeTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "lidani.Smart-HomeTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Smart Home.app/Smart Home";
+			};
+			name = Release;
+		};
+		EC87F020214174B900E42876 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Smart HomeUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "lidani.Smart-HomeUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Smart Home";
+			};
+			name = Debug;
+		};
+		EC87F021214174B900E42876 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Smart HomeUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "lidani.Smart-HomeUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Smart Home";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EC87EFEC214174B700E42876 /* Build configuration list for PBXProject "Smart Home" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC87F017214174B900E42876 /* Debug */,
+				EC87F018214174B900E42876 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EC87F019214174B900E42876 /* Build configuration list for PBXNativeTarget "Smart Home" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC87F01A214174B900E42876 /* Debug */,
+				EC87F01B214174B900E42876 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EC87F01C214174B900E42876 /* Build configuration list for PBXNativeTarget "Smart HomeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC87F01D214174B900E42876 /* Debug */,
+				EC87F01E214174B900E42876 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EC87F01F214174B900E42876 /* Build configuration list for PBXNativeTarget "Smart HomeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC87F020214174B900E42876 /* Debug */,
+				EC87F021214174B900E42876 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EC87EFE9214174B700E42876 /* Project object */;
+}
