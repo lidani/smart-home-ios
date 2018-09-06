@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AD_UNIT_ID_FOR_BANNER_TEST</key>
+	<string>ca-app-pub-3940256099942544/2934735716</string>
+	<key>AD_UNIT_ID_FOR_INTERSTITIAL_TEST</key>
+	<string>ca-app-pub-3940256099942544/4411468910</string>
+	<key>CLIENT_ID</key>
+	<string>85959705428-c1turin078jl8c31lu4rogt4f5i52ila.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.85959705428-c1turin078jl8c31lu4rogt4f5i52ila</string>
+	<key>API_KEY</key>
+	<string>AIzaSyD7T0nt4sg5oAjcQ00fBNEA8bA1l60hA4o</string>
+	<key>GCM_SENDER_ID</key>
+	<string>85959705428</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>lidani.Smart-Home</string>
+	<key>PROJECT_ID</key>
+	<string>my-smart-house-2a62d</string>
+	<key>STORAGE_BUCKET</key>
+	<string>my-smart-house-2a62d.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<true></true>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<false></false>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:85959705428:ios:583aeb269aefbbf7</string>
+	<key>DATABASE_URL</key>
+	<string>https://my-smart-house-2a62d.firebaseio.com</string>
+</dict>
+</plist>
