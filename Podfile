@@ -8,6 +8,7 @@ target 'Smart Home' do
   # Pods for Smart Home
     pod 'Firebase/Core'
     pod 'Firebase/Auth'
+    pod 'Firebase/Database'
 
   target 'Smart HomeTests' do
     inherit! :search_paths
