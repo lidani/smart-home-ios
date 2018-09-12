@@ -23,15 +23,144 @@ class AdminViewController: UITableViewController, UIPickerViewDelegate, UIPicker
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        toolbar.setRightBarButtonItems([
-            UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(openModal(_:))),
+        toolbar.setLeftBarButtonItems([
+            UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addComponent(_:)))
             ], animated: true)
+        toolbar.setRightBarButtonItems([
+            UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(exportHashKey(_:)))
+            ], animated: true)
+        
         tableView.register(UINib(nibName: "CustomViewCell", bundle: nil), forCellReuseIdentifier: "reusableCell")
         
         ref = Database.database().reference()
         user = Auth.auth().currentUser
         retrieveHashesKeys()
         retrieveHouses()
+    }
+    
+    @objc func addComponent(_ sender: UIBarButtonItem) {
+        let alertView = UIAlertController(
+            title: "Adicionar componente",
+            message: "\n\n\n\n\n\n\n\n",
+            preferredStyle: .alert
+        )
+        
+        alertView.addTextField(configurationHandler: { (textField) in
+            textField.placeholder = "Nome"
+        })
+        alertView.addTextField(configurationHandler: { (textField) in
+            textField.placeholder = "Porta"
+        })
+        alertView.addTextField(configurationHandler: { (textField) in
+            textField.placeholder = "Descrição (Opicional)"
+        })
+        
+        pickerView = UIPickerView(frame:
+            CGRect(x: 0, y: 50, width: 260, height: 132))
+        
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        
+        pickerView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
+        
+        alertView.view.addSubview(pickerView)
+        
+        let actionCancel = UIAlertAction(title: "Adicionar", style: UIAlertActionStyle.default, handler: { (_) in
+            let index = self.pickerView.selectedRow(inComponent: 0)
+            let selected = self.houses[index]
+            let components: NSArray = self.houses[index].components
+
+            let title = alertView.textFields![0].text!
+            let port = Int(alertView.textFields![1].text!)!
+            let desc = alertView.textFields![2].text!
+            let status = "off"
+            
+            self.ref.child("houses").child(selected.ownerUid != nil ? selected.ownerUid! : self.user.uid).child(selected.label).child("components").child(String(components.count)).setValue(["label": title, "port": port, "desc": desc, "status": status]) { (error, ref) -> Void in
+                if error != nil {
+                    Toast(msg: (error?.localizedDescription)!, view: self.view).showAlert()
+                } else {
+                    Toast(msg: "Componente adicionado com sucesso", view: self.view).showAlert()
+                }
+            }
+        })
+        let actionOk = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+        
+        alertView.addAction(actionCancel)
+        alertView.addAction(actionOk)
+        
+        present(alertView, animated: true, completion: { () -> Void in
+            self.pickerView.frame.size.width = alertView.view.frame.size.width
+        })
+        
+    }
+    
+    @objc func exportHashKey(_ sender: UIBarButtonItem) {
+        let alertView = UIAlertController(
+            title: "Compartilhar HashKey",
+            message: "\n\n\n\n\n\n\n\n\n",
+            preferredStyle: .alert)
+        
+        pickerView = UIPickerView(frame:
+            CGRect(x: 0, y: 50, width: 260, height: 162))
+        
+        pickerView.delegate = self
+        pickerView.dataSource = self
+        
+        pickerView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
+        
+        alertView.view.addSubview(pickerView)
+        
+        let actionOk = UIAlertAction(title: "Adicionar", style: UIAlertActionStyle.default, handler: { (_) in
+            let selected = self.houses[self.pickerView.selectedRow(inComponent: 0)].label
+            let hashKey = self.MD5(string: selected + self.user.uid + Date().description).map { String(format: "%02hhx", $0) }.joined()
+            print(hashKey)
+            self.ref.child("admins").child(hashKey).child(selected).setValue(["hashKey": hashKey, "house_title": selected, "ownerUid": self.user.uid]) { (error, ref) -> Void in
+                if error != nil {
+                    Toast(msg: (error?.localizedDescription)!, view: self.view).showAlert()
+                } else {
+                    Toast(msg: "HashKey adicionada com sucesso", view: self.view).showAlert()
+                }
+            }
+        })
+        let actionCancel = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+        
+        alertView.addAction(actionCancel)
+        alertView.addAction(actionOk)
+        
+        present(alertView, animated: true, completion: { () -> Void in
+            self.pickerView.frame.size.width = alertView.view.frame.size.width
+        })
+    }
+    
+    func retrieveHouses() {
+        ref.child("houses").child(user.uid).observe(.value, with: { (snap) in
+            if snap.value.debugDescription != "Optional(<null>)" {
+                let dict = snap.value as! NSDictionary
+                self.houses = []
+                for house in dict {
+                    let aux = house.value as AnyObject
+                    let house = House()
+                    if let components = aux["components"] {
+                        if (components != nil) {
+                            house.components = components as! NSArray
+                        }
+                    }
+                    if let title = aux["title"] {
+                        house.label = title as! String
+                    }
+                    if let ownerUid = aux["ownerUid"] {
+                        if (ownerUid != nil) {
+                            house.ownerUid = ownerUid as? String
+                        }
+                    }
+                    self.houses.append(house)
+                }
+            }
+        })
+    }
+    
+    @objc func cancelSelection(sender: UIButton){
+        self.dismiss(animated: true, completion: nil);
     }
     
     func MD5(string: String) -> Data {
@@ -46,84 +175,6 @@ class AdminViewController: UITableViewController, UIPickerViewDelegate, UIPicker
         
         return digestData
     }
-    
-    @objc func openModal(_ sender: UIBarButtonItem) {
-        
-        let alertView = UIAlertController(
-            title: "Select item from list",
-            message: "\n\n\n\n\n\n\n\n\n",
-            preferredStyle: .alert)
-        
-        pickerView = UIPickerView(frame:
-            CGRect(x: 0, y: 50, width: 260, height: 162))
-        
-        pickerView.delegate = self
-        pickerView.dataSource = self
-        
-        pickerView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
-        
-        alertView.view.addSubview(pickerView)
-        
-        let actionCancel = UIAlertAction(title: "Adicionar", style: UIAlertActionStyle.default, handler: { (_) in
-            let selected = self.houses[self.pickerView.selectedRow(inComponent: 0)].label
-            let hashKey = self.MD5(string: selected + self.user.uid + Date().description).map { String(format: "%02hhx", $0) }.joined()
-            print(hashKey)
-            self.ref.child("admins").child(hashKey).child(selected).setValue(["hashKey": hashKey, "house_title": selected, "ownerUid": self.user.uid])
-        })
-        let actionOk = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
-        
-        alertView.addAction(actionCancel)
-        alertView.addAction(actionOk)
-        
-        present(alertView, animated: true, completion: { () -> Void in
-            self.pickerView.frame.size.width = alertView.view.frame.size.width
-        })
-    }
-    
-    func retrieveHouses() {
-        ref.child("houses").child(user.uid).observe(.value, with: { (snap) in
-            let dict = snap.value as! NSDictionary
-            self.houses = []
-            for house in dict {
-                let aux = house.value as AnyObject
-                let house = House()
-                if let components = aux["components"] {
-                    if (components != nil) {
-                        house.components = components as! NSArray
-                    }
-                }
-                if let title = aux["title"] {
-                    house.label = title as! String
-                }
-                if let ownerUid = aux["ownerUid"] {
-                    if (ownerUid != nil) {
-                        house.ownerUid = ownerUid as? String
-                    }
-                }
-                self.houses.append(house)
-            }
-        })
-    }
-    
-    @objc func cancelSelection(sender: UIButton){
-        self.dismiss(animated: true, completion: nil);
-    }
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return houses.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return houses[row].label
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-    }
-
     
     func retrieveHashesKeys() {
         ref.child("admins").observe(.value, with: {(snap) in
@@ -159,13 +210,26 @@ class AdminViewController: UITableViewController, UIPickerViewDelegate, UIPicker
         })
     }
     
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return houses.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return houses[row].label
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return hashes.count
     }
     
@@ -188,15 +252,19 @@ class AdminViewController: UITableViewController, UIPickerViewDelegate, UIPicker
         if (editingStyle == UITableViewCellEditingStyle.delete) {
             let selected = self.hashes[indexPath.row].house_title
             let selectedHash = self.hashes[indexPath.row].hashKey
-            self.ref.child("admins").child(selectedHash).child(selected).removeValue()
+            self.ref.child("admins").child(selectedHash).child(selected).removeValue() { (error, ref) -> Void in
+                if (error != nil) {
+                    Toast(msg: (error?.localizedDescription)!, view: self.view).showAlert()
+                }
+            }
         }
     }
-    
 }
 
 extension AdminViewController: CustomViewCellDelegate {
     func didTappedButton(cell: CustomViewCell) {
         let hash = cell.hash_label.text
         UIPasteboard.general.string = hash
+        Toast(msg: "HashKey copiada para área de transferência", view: self.view).showAlert()
     }
 }

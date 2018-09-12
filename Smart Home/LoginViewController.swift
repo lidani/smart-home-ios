@@ -17,14 +17,13 @@ class LoginViewController: UIViewController {
     }
 
     @IBAction func loginButtonAction(_ sender: Any) {
-        
         let loginManager = LoginManager()
         loginManager.logIn(readPermissions: [ReadPermission.publicProfile, ReadPermission.email], viewController: self) { (loginResult) in
             switch loginResult {
                 case LoginResult.failed(let error):
-                    print(error)
+                    Toast(msg: error.localizedDescription, view: self.view).showAlert()
                 case LoginResult.cancelled:
-                    print("User cancelled login.")
+                    Toast(msg: "Operação cancelada pelo usuário", view: self.view).showAlert()
                 case LoginResult.success(_ , _ , let accessToken):
                     self.doFacebookLogin(token: accessToken.authenticationToken)
             }
@@ -36,6 +35,8 @@ class LoginViewController: UIViewController {
         Auth.auth().signInAndRetrieveData(with: credential, completion: { (authResult, error) in
             if (error == nil && authResult?.user != nil) {
                 self.performSegue(withIdentifier: "loginToMain", sender: self)
+            } else if error != nil {
+                Toast(msg: (error?.localizedDescription)!, view: self.view).showAlert()
             }
         })
     }

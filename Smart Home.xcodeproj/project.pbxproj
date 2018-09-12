@@ -12,7 +12,6 @@
 		A202E07A80E14F203C464C0C /* Pods_Smart_HomeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D5290473BE488F21984F558 /* Pods_Smart_HomeTests.framework */; };
 		EC47C1D62147E9AE00793458 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC47C1D42147E9AE00793458 /* CustomCell.swift */; };
 		EC47C1D72147E9AE00793458 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC47C1D52147E9AE00793458 /* CustomCell.xib */; };
-		EC47C1D9214838EB00793458 /* CustomAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC47C1D8214838EB00793458 /* CustomAlertController.swift */; };
 		EC47C1DF21485F3600793458 /* CustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC47C1DD21485F3600793458 /* CustomViewCell.swift */; };
 		EC47C1E021485F3600793458 /* CustomViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC47C1DE21485F3600793458 /* CustomViewCell.xib */; };
 		EC7C4EC421469875007D700E /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7C4EC321469875007D700E /* House.swift */; };
@@ -28,6 +27,7 @@
 		EC87F02521417BEF00E42876 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC87F02421417BEF00E42876 /* LoginViewController.swift */; };
 		EC8FAEE62146841800018161 /* AdminViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8FAEE52146841800018161 /* AdminViewController.swift */; };
 		EC8FAEE82146842100018161 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8FAEE72146842100018161 /* SettingsViewController.swift */; };
+		ECCF3C4B21499ADD005DDAFC /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECCF3C4A21499ADD005DDAFC /* Toast.swift */; };
 		ECF4DF4321418B1000A6BEFD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF4DF4221418B1000A6BEFD /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,7 +59,6 @@
 		AA7B24B5FD4D16CF3BD49D08 /* Pods_Smart_HomeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smart_HomeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC47C1D42147E9AE00793458 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		EC47C1D52147E9AE00793458 /* CustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
-		EC47C1D8214838EB00793458 /* CustomAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertController.swift; sourceTree = "<group>"; };
 		EC47C1DA2148508900793458 /* Smart Home-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Smart Home-Bridging-Header.h"; sourceTree = "<group>"; };
 		EC47C1DD21485F3600793458 /* CustomViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewCell.swift; sourceTree = "<group>"; };
 		EC47C1DE21485F3600793458 /* CustomViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomViewCell.xib; sourceTree = "<group>"; };
@@ -82,6 +81,7 @@
 		EC87F02421417BEF00E42876 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EC8FAEE52146841800018161 /* AdminViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminViewController.swift; sourceTree = "<group>"; };
 		EC8FAEE72146842100018161 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		ECCF3C4A21499ADD005DDAFC /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		ECF4DF4221418B1000A6BEFD /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F472125B3EE6CB339EE5564C /* Pods-Smart HomeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart HomeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Smart HomeTests/Pods-Smart HomeTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -163,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				EC7C4EC321469875007D700E /* House.swift */,
+				ECCF3C4A21499ADD005DDAFC /* Toast.swift */,
 				EC87EFF4214174B700E42876 /* AppDelegate.swift */,
 				EC87EFF6214174B700E42876 /* ViewController.swift */,
 				ECF4DF4221418B1000A6BEFD /* HomeViewController.swift */,
@@ -170,7 +171,6 @@
 				EC87F02421417BEF00E42876 /* LoginViewController.swift */,
 				EC8FAEE72146842100018161 /* SettingsViewController.swift */,
 				EC8FAEE52146841800018161 /* AdminViewController.swift */,
-				EC47C1D8214838EB00793458 /* CustomAlertController.swift */,
 				EC47C1DD21485F3600793458 /* CustomViewCell.swift */,
 				EC47C1DE21485F3600793458 /* CustomViewCell.xib */,
 				EC47C1D42147E9AE00793458 /* CustomCell.swift */,
@@ -439,9 +439,9 @@
 				EC47C1DF21485F3600793458 /* CustomViewCell.swift in Sources */,
 				EC87EFF7214174B700E42876 /* ViewController.swift in Sources */,
 				EC87EFF5214174B700E42876 /* AppDelegate.swift in Sources */,
-				EC47C1D9214838EB00793458 /* CustomAlertController.swift in Sources */,
 				EC8FAEE62146841800018161 /* AdminViewController.swift in Sources */,
 				ECF4DF4321418B1000A6BEFD /* HomeViewController.swift in Sources */,
+				ECCF3C4B21499ADD005DDAFC /* Toast.swift in Sources */,
 				EC8FAEE82146842100018161 /* SettingsViewController.swift in Sources */,
 				EC7C4EE42146CCF6007D700E /* HouseViewController.swift in Sources */,
 			);

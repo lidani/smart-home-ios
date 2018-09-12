@@ -19,7 +19,9 @@ class HouseViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         tableView.register(UINib(nibName: "CustomCell", bundle: nil), forCellReuseIdentifier: "celulaDeReuso")
+        
         self.navigationItem.title = house.label
         self.ref = Database.database().reference()
         retrieveComponents()
@@ -56,16 +58,16 @@ class HouseViewController: UITableViewController {
                 self.tableView.dataSource = self
                 self.tableView.reloadData()
             }
-        })
+        }) { (error) in
+            Toast(msg: error.localizedDescription, view: self.view).showAlert()
+        }
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return components.count
     }
     
@@ -86,7 +88,13 @@ class HouseViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.delete) {
-            self.ref.child("houses").child(UID).child(house.label).child("components").child((indexPath.row).description).removeValue()
+            self.ref.child("houses").child(UID).child(house.label).child("components").child((indexPath.row).description).removeValue() { (error, ref) -> Void in
+                if (error != nil) {
+                    Toast(msg: (error?.localizedDescription)!, view: self.view).showAlert()
+                } else {
+                    Toast(msg: "componente removido com sucesso", view: self.view).showAlert()
+                }
+            }
         }
     }
 
@@ -96,6 +104,10 @@ extension HouseViewController: CustomCellDelegate {
     func didTappedSwitch(cell: CustomCell) {
         let indexPath = tableView.indexPath(for: cell)
         let index: String = (indexPath?.row)!.description
-        ref.child("houses").child(self.UID).child(house.label).child("components").child(index).child("status").setValue(cell.changeSwitch.isOn ? "on" : "off")
+        ref.child("houses").child(self.UID).child(house.label).child("components").child(index).child("status").setValue(cell.changeSwitch.isOn ? "on" : "off") { (error, ref) -> Void in
+            if (error != nil) {
+                Toast(msg: (error?.localizedDescription)!, view: self.view).showAlert()
+            }
+        }
     }
 }

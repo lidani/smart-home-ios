@@ -23,13 +23,10 @@ class HomeViewController: UITableViewController {
         
         let button: UIButton = UIButton(type: UIButtonType.custom)
         button.setImage(UIImage(named: "add_user"), for: UIControlState.normal)
-        button.addTarget(self, action: #selector(openSecondModal(_:)), for: UIControlEvents.touchUpInside)
-        let barButton = UIBarButtonItem(customView: button)
-        
-        toolbar.setRightBarButtonItems([
-            UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(openModal(_:))),
-            barButton
-        ], animated: true)
+        button.addTarget(self, action: #selector(addHouseFromHashKey(_:)), for: UIControlEvents.touchUpInside)
+ 
+        toolbar.setRightBarButton(UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addHouse(_:))), animated: true)
+        toolbar.setLeftBarButton(UIBarButtonItem(customView: button), animated: true)
 
         user = Auth.auth().currentUser!;
         ref = Database.database().reference()
@@ -50,7 +47,9 @@ class HomeViewController: UITableViewController {
                         }
                     }
                     if let title = aux["title"] {
-                        house.label = title as! String
+                        if (title != nil) {
+                            house.label = title as! String
+                        }
                     }
                     if let ownerUid = aux["ownerUid"] {
                         if (ownerUid != nil) {
@@ -62,7 +61,7 @@ class HomeViewController: UITableViewController {
                 self.tableView.reloadData()
             }
         }) { (error) in
-            print(error.localizedDescription)
+            Toast(msg: error.localizedDescription, view: self.view).showAlert()
         }
     }
     
@@ -81,13 +80,19 @@ class HomeViewController: UITableViewController {
                 }
             }
             house.ownerUid = adm.ownerUid
-            self.ref.child("houses").child(self.user.uid).child(house.label).setValue(["title": house.label, "components": house.components, "ownerUid": house.ownerUid ?? ""])
-        }) {(error) in
-            
+            self.ref.child("houses").child(self.user.uid).child(house.label).setValue(["title": house.label, "components": house.components, "ownerUid": house.ownerUid ?? ""]) { (error, ref) -> Void in
+                if error != nil {
+                    Toast(msg: (error?.localizedDescription)!, view: self.view).showAlert()
+                } else {
+                    Toast(msg: "Casa adicionada com sucesso", view: self.view).showAlert()
+                }
+            };
+        }) { (error) in
+            Toast(msg: error.localizedDescription, view: self.view).showAlert()
         }
     }
     
-    @objc func openModal(_ sender: UIBarButtonItem) {
+    @objc func addHouse(_ sender: UIBarButtonItem) {
         
         let alert = UIAlertController(title: "Adicionar uma nova casa", message: "Esolha o nome e adicione sua casa", preferredStyle: UIAlertControllerStyle.alert)
         
@@ -98,7 +103,13 @@ class HomeViewController: UITableViewController {
         alert.addAction(UIAlertAction(title: "Adicionar", style: UIAlertActionStyle.default,
             handler: { (UIAlertAction) -> Void in
                 let houseName = alert.textFields![0].text!
-                self.ref.child("houses").child(self.user.uid).child(houseName).setValue(["title": houseName]);
+                self.ref.child("houses").child(self.user.uid).child(houseName).setValue(["title": houseName]) { (error, ref) -> Void in
+                    if error != nil {
+                        Toast(msg: (error?.localizedDescription)!, view: self.view).showAlert()
+                    } else {
+                        Toast(msg: "Casa adicionada com sucesso", view: self.view).showAlert()
+                    }
+                };
         }))
         
         alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.cancel, handler: nil))
@@ -106,7 +117,7 @@ class HomeViewController: UITableViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    @objc func openSecondModal(_ sender: UIBarButtonItem) {
+    @objc func addHouseFromHashKey(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "Adiconar uma nova casa", message: "Adicione uma nova casa a partir de um HashKey", preferredStyle: UIAlertControllerStyle.alert)
         
         alert.addTextField(configurationHandler: { (textField) in
@@ -135,26 +146,30 @@ class HomeViewController: UITableViewController {
                             }
                             
                             if (adm.ownerUid == self.user.uid) {
-                                // voce nao pode adicionar sua casa próproa
+                                Toast(msg: "Você nao pode adicionar sua casa própria", view: self.view).showAlert()
                             } else {
                                 self.retrieveAdminHouses(adm: adm)
                             }
                         }
-                    } else {
-                        //
                     }
-                })
+                }) { (error) in
+                    Toast(msg: error.localizedDescription, view: self.view).showAlert()
+                }
         }))
-        
         alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.cancel, handler: nil))
         
         self.present(alert, animated: true, completion: nil)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "homeToHouseView" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let houseViewController = segue.destination as! HouseViewController
+                houseViewController.house = self.houses[indexPath.row]
+            }
+        }
+    }
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
@@ -182,16 +197,13 @@ class HomeViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.delete) {
             let house = houses[indexPath.row]
-            self.ref.child("houses").child(user.uid).child(house.label).removeValue()
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "homeToHouseView" {
-            if let indexPath = tableView.indexPathForSelectedRow {
-                let houseViewController = segue.destination as! HouseViewController
-                houseViewController.house = self.houses[indexPath.row]
-            }
+            self.ref.child("houses").child(user.uid).child(house.label).removeValue() { (error, ref) -> Void in
+                if error != nil {
+                    Toast(msg: (error?.localizedDescription)!, view: self.view).showAlert()
+                } else {
+                    Toast(msg: "\(house.label) removida com sucesso", view: self.view).showAlert()
+                }
+            };
         }
     }
 
