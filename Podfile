@@ -9,6 +9,10 @@ target 'Smart Home' do
     pod 'Firebase/Core'
     pod 'Firebase/Auth'
     pod 'Firebase/Database'
+    pod 'FBSDKLoginKit'
+    pod 'FacebookCore'
+    pod 'FacebookLogin'
+    
 
   target 'Smart HomeTests' do
     inherit! :search_paths

@@ -8,44 +8,36 @@
 
 import UIKit
 import FirebaseAuth
+import FacebookCore
+import FacebookLogin
 
 class LoginViewController: UIViewController {
-
-    @IBOutlet weak var email_input: UITextField!
-    @IBOutlet weak var password_input: UITextField!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     @IBAction func loginButtonAction(_ sender: Any) {
-        let email = self.email_input.text;
-        let password = self.password_input.text;
         
-        Auth.auth().signIn(withEmail: email!, password: password!) { (user, error) in
-            if (user != nil && error == nil) {
-                self.performSegue(withIdentifier: "loginToMain", sender: self)
-            } else if (user == nil && error != nil) {
-                // Show error alert
+        let loginManager = LoginManager()
+        loginManager.logIn(readPermissions: [ReadPermission.publicProfile, ReadPermission.email], viewController: self) { (loginResult) in
+            switch loginResult {
+                case LoginResult.failed(let error):
+                    print(error)
+                case LoginResult.cancelled:
+                    print("User cancelled login.")
+                case LoginResult.success(_ , _ , let accessToken):
+                    self.doFacebookLogin(token: accessToken.authenticationToken)
             }
         }
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func doFacebookLogin(token: String) {
+        let credential = FacebookAuthProvider.credential(withAccessToken: token)
+        Auth.auth().signInAndRetrieveData(with: credential, completion: { (authResult, error) in
+            if (error == nil && authResult?.user != nil) {
+                self.performSegue(withIdentifier: "loginToMain", sender: self)
+            }
+        })
     }
-    */
 
 }

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reusableCell" rowHeight="48" id="KGk-i7-Jjw" customClass="CustomViewCell" customModule="Smart_Home" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="357" height="48"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="357" height="47.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Llb-VO-6aH">
+                        <rect key="frame" x="73" y="11" width="178" height="26"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="218" id="7i9-tR-aHe"/>
+                            <constraint firstAttribute="height" constant="26" id="PsC-Ne-ta0"/>
+                            <constraint firstAttribute="width" constant="178" id="t5u-9M-kc5"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AHJ-XO-Kpe">
+                        <rect key="frame" x="314" y="12" width="31" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="36" id="gGU-B4-IPG"/>
+                        </constraints>
+                        <state key="normal" image="copy"/>
+                        <connections>
+                            <action selector="onClickCopyButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="MZ1-dd-0i4"/>
+                        </connections>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rK7-IY-K0p">
+                        <rect key="frame" x="12" y="10" width="42" height="28"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="28" id="T7T-Rh-gUu"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Llb-VO-6aH" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="6iu-Yh-d97"/>
+                    <constraint firstItem="Llb-VO-6aH" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="865-Ye-uQO"/>
+                    <constraint firstItem="Llb-VO-6aH" firstAttribute="leading" secondItem="rK7-IY-K0p" secondAttribute="trailing" constant="19" id="G1W-NO-fEN"/>
+                    <constraint firstItem="AHJ-XO-Kpe" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="L3x-ls-sWR"/>
+                    <constraint firstAttribute="bottom" secondItem="rK7-IY-K0p" secondAttribute="bottom" constant="10" id="UeX-fg-Kqn"/>
+                    <constraint firstItem="rK7-IY-K0p" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="jLd-RK-vGs"/>
+                    <constraint firstItem="rK7-IY-K0p" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="12" id="jvh-hB-Sl0"/>
+                    <constraint firstAttribute="bottom" secondItem="AHJ-XO-Kpe" secondAttribute="bottom" constant="12" id="o3g-eL-fpl"/>
+                    <constraint firstAttribute="trailing" secondItem="AHJ-XO-Kpe" secondAttribute="trailing" constant="12" id="psG-16-LZU"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="hash_label" destination="Llb-VO-6aH" id="5eW-2U-Ftv"/>
+                <outlet property="house_label" destination="rK7-IY-K0p" id="3mi-G8-VOt"/>
+            </connections>
+            <point key="canvasLocation" x="6.5" y="54"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="copy" width="20" height="20"/>
+    </resources>
+</document>

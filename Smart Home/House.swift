@@ -13,15 +13,12 @@ class House {
     
     var label: String
     var components: NSArray
+    var ownerUid: String?
     
     init() {
         self.label = ""
         self.components = []
-    }
-    
-    init?(label: String, components: NSArray) {
-        self.label = label
-        self.components = components
+        self.ownerUid = nil
     }
 }
 
@@ -32,10 +29,23 @@ class Component {
     var desc: String
     var status: String
     
-    init(label: String, port: Int, desc: String, status: String) {
-        self.label = label
-        self.port = port
-        self.desc = desc
-        self.status = status
+    init() {
+        self.label = ""
+        self.port = 0
+        self.desc = ""
+        self.status = ""
+    }
+}
+
+class Admin {
+    
+    var hashKey: String
+    var house_title: String
+    var ownerUid: String
+    
+    init() {
+        self.hashKey = ""
+        self.house_title = ""
+        self.ownerUid = ""
     }
 }

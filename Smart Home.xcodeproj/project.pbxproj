@@ -10,6 +10,11 @@
 		029D9C2ECB8AB0337CA0B75C /* Pods_Smart_HomeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA7B24B5FD4D16CF3BD49D08 /* Pods_Smart_HomeUITests.framework */; };
 		0DE2A4DDDD27ACAFEB269B0D /* Pods_Smart_Home.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3100C7253B07C9A35B949925 /* Pods_Smart_Home.framework */; };
 		A202E07A80E14F203C464C0C /* Pods_Smart_HomeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D5290473BE488F21984F558 /* Pods_Smart_HomeTests.framework */; };
+		EC47C1D62147E9AE00793458 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC47C1D42147E9AE00793458 /* CustomCell.swift */; };
+		EC47C1D72147E9AE00793458 /* CustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC47C1D52147E9AE00793458 /* CustomCell.xib */; };
+		EC47C1D9214838EB00793458 /* CustomAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC47C1D8214838EB00793458 /* CustomAlertController.swift */; };
+		EC47C1DF21485F3600793458 /* CustomViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC47C1DD21485F3600793458 /* CustomViewCell.swift */; };
+		EC47C1E021485F3600793458 /* CustomViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EC47C1DE21485F3600793458 /* CustomViewCell.xib */; };
 		EC7C4EC421469875007D700E /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7C4EC321469875007D700E /* House.swift */; };
 		EC7C4EE42146CCF6007D700E /* HouseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC7C4EE32146CCF6007D700E /* HouseViewController.swift */; };
 		EC87EFF5214174B700E42876 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC87EFF4214174B700E42876 /* AppDelegate.swift */; };
@@ -52,6 +57,12 @@
 		7D5290473BE488F21984F558 /* Pods_Smart_HomeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smart_HomeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CF7EA787DAB838B410ED1B0 /* Pods-Smart Home.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Smart Home.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Smart Home/Pods-Smart Home.debug.xcconfig"; sourceTree = "<group>"; };
 		AA7B24B5FD4D16CF3BD49D08 /* Pods_Smart_HomeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Smart_HomeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC47C1D42147E9AE00793458 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		EC47C1D52147E9AE00793458 /* CustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCell.xib; sourceTree = "<group>"; };
+		EC47C1D8214838EB00793458 /* CustomAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertController.swift; sourceTree = "<group>"; };
+		EC47C1DA2148508900793458 /* Smart Home-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Smart Home-Bridging-Header.h"; sourceTree = "<group>"; };
+		EC47C1DD21485F3600793458 /* CustomViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewCell.swift; sourceTree = "<group>"; };
+		EC47C1DE21485F3600793458 /* CustomViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomViewCell.xib; sourceTree = "<group>"; };
 		EC7C4EC321469875007D700E /* House.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = House.swift; sourceTree = "<group>"; };
 		EC7C4EE32146CCF6007D700E /* HouseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseViewController.swift; sourceTree = "<group>"; };
 		EC87EFF1214174B700E42876 /* Smart Home.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Smart Home.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,7 +162,7 @@
 		EC87EFF3214174B700E42876 /* Smart Home */ = {
 			isa = PBXGroup;
 			children = (
-				EC87F0222141750200E42876 /* GoogleService-Info.plist */,
+				EC7C4EC321469875007D700E /* House.swift */,
 				EC87EFF4214174B700E42876 /* AppDelegate.swift */,
 				EC87EFF6214174B700E42876 /* ViewController.swift */,
 				ECF4DF4221418B1000A6BEFD /* HomeViewController.swift */,
@@ -159,11 +170,17 @@
 				EC87F02421417BEF00E42876 /* LoginViewController.swift */,
 				EC8FAEE72146842100018161 /* SettingsViewController.swift */,
 				EC8FAEE52146841800018161 /* AdminViewController.swift */,
+				EC47C1D8214838EB00793458 /* CustomAlertController.swift */,
+				EC47C1DD21485F3600793458 /* CustomViewCell.swift */,
+				EC47C1DE21485F3600793458 /* CustomViewCell.xib */,
+				EC47C1D42147E9AE00793458 /* CustomCell.swift */,
+				EC47C1D52147E9AE00793458 /* CustomCell.xib */,
 				EC87EFF8214174B700E42876 /* Main.storyboard */,
-				EC87EFFB214174B800E42876 /* Assets.xcassets */,
 				EC87EFFD214174B900E42876 /* LaunchScreen.storyboard */,
+				EC47C1DA2148508900793458 /* Smart Home-Bridging-Header.h */,
+				EC87EFFB214174B800E42876 /* Assets.xcassets */,
+				EC87F0222141750200E42876 /* GoogleService-Info.plist */,
 				EC87F000214174B900E42876 /* Info.plist */,
-				EC7C4EC321469875007D700E /* House.swift */,
 			);
 			path = "Smart Home";
 			sourceTree = "<group>";
@@ -258,6 +275,7 @@
 				TargetAttributes = {
 					EC87EFF0214174B700E42876 = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 0940;
 					};
 					EC87F004214174B900E42876 = {
 						CreatedOnToolsVersion = 9.4.1;
@@ -294,6 +312,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC47C1D72147E9AE00793458 /* CustomCell.xib in Resources */,
+				EC47C1E021485F3600793458 /* CustomViewCell.xib in Resources */,
 				EC87EFFF214174B900E42876 /* LaunchScreen.storyboard in Resources */,
 				EC87F0232141750200E42876 /* GoogleService-Info.plist in Resources */,
 				EC87EFFC214174B900E42876 /* Assets.xcassets in Resources */,
@@ -325,6 +345,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Smart Home/Pods-Smart Home-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -332,6 +357,11 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -405,8 +435,11 @@
 			files = (
 				EC7C4EC421469875007D700E /* House.swift in Sources */,
 				EC87F02521417BEF00E42876 /* LoginViewController.swift in Sources */,
+				EC47C1D62147E9AE00793458 /* CustomCell.swift in Sources */,
+				EC47C1DF21485F3600793458 /* CustomViewCell.swift in Sources */,
 				EC87EFF7214174B700E42876 /* ViewController.swift in Sources */,
 				EC87EFF5214174B700E42876 /* AppDelegate.swift in Sources */,
+				EC47C1D9214838EB00793458 /* CustomAlertController.swift in Sources */,
 				EC8FAEE62146841800018161 /* AdminViewController.swift in Sources */,
 				ECF4DF4321418B1000A6BEFD /* HomeViewController.swift in Sources */,
 				EC8FAEE82146842100018161 /* SettingsViewController.swift in Sources */,
@@ -584,6 +617,7 @@
 			baseConfigurationReference = 9CF7EA787DAB838B410ED1B0 /* Pods-Smart Home.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6AY26LU2G6;
 				INFOPLIST_FILE = "Smart Home/Info.plist";
@@ -593,6 +627,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "lidani.Smart-Home";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Smart Home/Smart Home-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -603,6 +639,7 @@
 			baseConfigurationReference = 67498BEA88CDADDE699C997E /* Pods-Smart Home.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6AY26LU2G6;
 				INFOPLIST_FILE = "Smart Home/Info.plist";
@@ -612,6 +649,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "lidani.Smart-Home";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Smart Home/Smart Home-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

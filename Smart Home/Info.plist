@@ -41,5 +41,21 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+
+	<!-- Facebook SDK -->
+	<key>CFBundleURLTypes</key>
+	<array>
+	<dict>
+	<key>CFBundleURLSchemes</key>
+	<array>
+		<string>fb278365076300532</string>
+	</array>
+	</dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>278365076300532</string>
+	<key>FacebookDisplayName</key>
+	<string>Lidani Smart Home</string>
+
 </dict>
 </plist>

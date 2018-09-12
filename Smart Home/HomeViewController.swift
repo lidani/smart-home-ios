@@ -21,8 +21,14 @@ class HomeViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        toolbar.setLeftBarButtonItems([
-            UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(openModal(_:)))
+        let button: UIButton = UIButton(type: UIButtonType.custom)
+        button.setImage(UIImage(named: "add_user"), for: UIControlState.normal)
+        button.addTarget(self, action: #selector(openSecondModal(_:)), for: UIControlEvents.touchUpInside)
+        let barButton = UIBarButtonItem(customView: button)
+        
+        toolbar.setRightBarButtonItems([
+            UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(openModal(_:))),
+            barButton
         ], animated: true)
 
         user = Auth.auth().currentUser!;
@@ -34,27 +40,56 @@ class HomeViewController: UITableViewController {
         ref.child("houses").child(self.user.uid).observe(DataEventType.value, with: { (snapshot: DataSnapshot) in
             self.houses = []
             let houseDict = snapshot.value as? NSDictionary
-            
-            for house in houseDict! {
-                let aux = (house.value as AnyObject)
-                let house = House()
-                if let components = aux["components"] {
-                    house.components = components as! NSArray
+            if houseDict != nil {
+                for house in houseDict! {
+                    let aux = (house.value as AnyObject)
+                    let house = House()
+                    if let components = aux["components"] {
+                        if (components != nil) {
+                            house.components = components as! NSArray
+                        }
+                    }
+                    if let title = aux["title"] {
+                        house.label = title as! String
+                    }
+                    if let ownerUid = aux["ownerUid"] {
+                        if (ownerUid != nil) {
+                            house.ownerUid = ownerUid as? String
+                        }
+                    }
+                    self.houses.append(house)
                 }
-                if let title = aux["title"] {
-                    house.label = title as! String
-                }
-                self.houses.append(house)
+                self.tableView.reloadData()
             }
-            self.tableView.reloadData()
         }) { (error) in
             print(error.localizedDescription)
         }
     }
     
+    func retrieveAdminHouses(adm: Admin) -> Void {
+        ref.child("houses").child(adm.ownerUid).child(adm.house_title).observe(.value, with: {(snapshot) in
+            let h = snapshot.value as AnyObject
+            let house = House()
+            if let title = h["title"] {
+                if (title != nil) {
+                    house.label = title as! String
+                }
+            }
+            if let components = h["components"] {
+                if (components != nil) {
+                    house.components = components as! NSArray
+                }
+            }
+            house.ownerUid = adm.ownerUid
+            self.ref.child("houses").child(self.user.uid).child(house.label).setValue(["title": house.label, "components": house.components, "ownerUid": house.ownerUid ?? ""])
+        }) {(error) in
+            
+        }
+    }
+    
     @objc func openModal(_ sender: UIBarButtonItem) {
         
-        let alert = UIAlertController(title: "UIAlertController", message: "Adicionar Casa", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Adicionar uma nova casa", message: "Esolha o nome e adicione sua casa", preferredStyle: UIAlertControllerStyle.alert)
         
         alert.addTextField(configurationHandler: { (textField) in
             textField.placeholder = "Nome da casa"
@@ -64,6 +99,51 @@ class HomeViewController: UITableViewController {
             handler: { (UIAlertAction) -> Void in
                 let houseName = alert.textFields![0].text!
                 self.ref.child("houses").child(self.user.uid).child(houseName).setValue(["title": houseName]);
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.cancel, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    @objc func openSecondModal(_ sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: "Adiconar uma nova casa", message: "Adicione uma nova casa a partir de um HashKey", preferredStyle: UIAlertControllerStyle.alert)
+        
+        alert.addTextField(configurationHandler: { (textField) in
+            textField.placeholder = "HashKey"
+        })
+        
+        alert.addAction(UIAlertAction(title: "Adicionar", style: UIAlertActionStyle.default,
+            handler: { (UIAlertAction) -> Void in
+                let hashkey = alert.textFields![0].text!
+                
+                self.ref.child("admins").child(hashkey).observeSingleEvent(of: .value, with: {(snap) in
+                    if let adminDict = snap.value as? NSDictionary {
+                        for admin in adminDict {
+                            let aux = admin.value as AnyObject
+                            let adm = Admin()
+                            if let ownerUid = aux["ownerUid"] {
+                                if (ownerUid != nil) {
+                                    adm.ownerUid = ownerUid as! String
+                                }
+                            }
+                            if let hashKey = aux["hashKey"] {
+                                adm.hashKey = hashKey as! String
+                            }
+                            if let house_title = aux["house_title"] {
+                                adm.house_title = house_title as! String
+                            }
+                            
+                            if (adm.ownerUid == self.user.uid) {
+                                // voce nao pode adicionar sua casa próproa
+                            } else {
+                                self.retrieveAdminHouses(adm: adm)
+                            }
+                        }
+                    } else {
+                        //
+                    }
+                })
         }))
         
         alert.addAction(UIAlertAction(title: "Cancelar", style: UIAlertActionStyle.cancel, handler: nil))
@@ -93,6 +173,17 @@ class HomeViewController: UITableViewController {
         cell.textLabel?.text = houses[indexPath.row].label
         
         return cell;
+    }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == UITableViewCellEditingStyle.delete) {
+            let house = houses[indexPath.row]
+            self.ref.child("houses").child(user.uid).child(house.label).removeValue()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

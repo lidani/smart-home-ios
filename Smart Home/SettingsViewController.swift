@@ -7,12 +7,17 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class SettingsViewController: UIViewController {
 
+    var user: User!
+    @IBOutlet weak var name_label: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        user = Auth.auth().currentUser
+        name_label.text = user.displayName != nil ? user.displayName : user.email
         // Do any additional setup after loading the view.
     }
 
@@ -21,7 +26,15 @@ class SettingsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    @IBAction func doLogout(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+            performSegue(withIdentifier: "settingsToLogin", sender: self)
+        } catch {
+            
+        }
+    }
+    
     /*
     // MARK: - Navigation
 
